@@ -33,7 +33,7 @@ def docking(input_file, par=None):
         os.chdir('file_prep')
 
     if os.path.exists(f'{par.name_ligand}_c.xyz') == False:
-        subprocess.call([os.environ['OBABEL']+f' -ixyz {input_dir}/{par.xyz_file} -oxyz {par.name_ligand}_c.xyz --canonical > {par.name_ligand}_c.xyz'],shell=True,  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.call([os.environ['OBABEL']+f' -ixyz {input_dir}/{par.xyz_file} -oxyz {par.name_ligand}_c.xyz --canonical > {par.name_ligand}_c.xyz'],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
     if os.path.exists(f'{par.name_ligand}.mol2') == False:
         subprocess.call([os.environ['OBABEL']+f' -ixyz {par.name_ligand}_c.xyz -omol2 {par.name_ligand}.mol2  > {par.name_ligand}.mol2'],shell=True,  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
